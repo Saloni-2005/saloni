@@ -1,0 +1,158 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <style> 
+           
+        div{text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px rgba(0,0,0);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-color: black;
+            max-width: 500px;
+            margin: 0 auto;}
+           
+    </style> 
+</head>
+   <body>
+      <div class="Currency">
+           <h1>Calculator</h1>
+          
+      </div>
+     <div class="Amount">
+       
+        <input type="number" id="number1" placeholder="Enter Number" required >
+       
+    </div>
+    <div class="operation">
+       
+        <input name="operation" list="operation" placeholder="operation" autofocus>
+        <datalist id="operation">
+            <option value="+">
+                <option value="-">
+                    <option value="*">
+                        <option value="/">
+        </datalist>
+    </div>
+    <div class="Amount2">
+       
+        <input type="number" id="number2" placeholder="Enter Number" required >
+    </div>
+    <div class="equals">
+      
+        <button id="equals"  style="background-color: rgb(0, 255, 119);"; type="Operate">Equals</button >
+           
+    </div> 
+    <div class="result" id="result"></div>
+    <script>
+        
+        document.getElementById('equals').addEventListener('click', function() {
+            const num1 = parseFloat(document.getElementById('number1').value);
+            
+            const num2 = document.getElementById('number2').value;})
+            const operation= document.getElementById('operation').value
+        function operate(number1,number2,operation){
+             if (operation=="+"){ return number1+number2} 
+             if(operation=="-") {return number1-number2}
+             if(operation=="*") {return number1*number2}
+             if(operation=="/") {
+                 if(number2==0){ return "Invalid number2"}
+                 else{ return number1/number2}
+           }  return;}
+
+           const convertedAmount =operate(number1,number2,operation) ;
+            const resultContainer = document.getElementById('result');
+            resultContainer.textContent = `Answer `;
+        
+
+       
+    </script> 
+    
+   </body>
+</html> -->
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <style> 
+        div {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+    </style> 
+</head>
+<body>
+    <div class="Currency">
+        <h1>Calculator</h1>
+    </div>
+
+    <div class="Amount">
+        <input type="number" id="number1" placeholder="Enter Number" required>
+    </div>
+
+    <div class="operation">
+        <select id="operation">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+    </div>
+
+    <div class="Amount2">
+        <input type="number" id="number2" placeholder="Enter Number" required>
+    </div>
+
+    <div class="equals">
+        <button id="equals" style="background-color: rgb(0, 255, 119);" type="button">Equals</button>
+    </div> 
+
+    <div class="result" id="result"></div>
+
+    <script>
+        document.getElementById('equals').addEventListener('click', function() {
+            // Get the values of the inputs
+            const number1 = parseFloat(document.getElementById('number1').value);
+            const number2 = parseFloat(document.getElementById('number2').value);
+            const operation = document.getElementById('operation').value;
+
+            // Function to perform the operation
+            function operate(number1, number2, operation) {
+                if (operation === "+") return number1 + number2;
+                if (operation === "-") return number1 - number2;
+                if (operation === "*") return number1 * number2;
+                if (operation === "/") {
+                    if (number2 === 0) return "Division by zero is not allowed";
+                    return number1 / number2;
+                }
+                return "Invalid operation";
+            }
+
+            // Get the result of the operation
+            const result = operate(number1, number2, operation);
+
+            // Display the result in the result container
+            const resultContainer = document.getElementById('result');
+            resultContainer.textContent = `Answer: ${result}`;
+        });
+    </script>
+</body>
+</html>
